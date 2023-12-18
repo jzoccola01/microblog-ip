@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Microblogging app</title>
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='microblog.css') }}">
+    </head>
+    <body>
+        <header>
+            <h1>Microblog</h1>
+            <h6>
+                <i> a small social media project. </i>
+            </h6>
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <a href="{{url_for('main.user_profile', user_id=current_user.id)}}">Profile</a>
+        </header>
+        <section class="logged-in-user-name">
+            {% if current_user.is_authenticated: %}
+                <div>
+                    <h2>User currently logged in: {{current_user.name}}</h2>
+                    <a href="{{ url_for('auth.log_out') }}">Log Out</a>
+                </div>
+            {% endif %}
+        </section>
+
+        <section class="content">
+            {% block content %}{% endblock %}
+        </section>
+
+        <footer><small><i>Developed for Web applications - by Jonathan Zoccola</i></small></footer>
+    </body>
+</html>

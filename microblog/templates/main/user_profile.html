@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="user-info">
+        <h3>{{user.name}}'s Profile Page </h3>
+        <img src="../static/defaultphoto.jpg" alt="User profile picture" width="150px">
+        <button class="follow-button">Follow</button>
+    </section>
+
+    <section>
+        <h2>{{ user.name }}'s Most Recent Posts</h2>
+        {% include 'posts_template.html' %}
+    </section>
+{% endblock %}

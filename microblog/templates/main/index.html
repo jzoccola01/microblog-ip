@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="user-info">
+        <img src="../static/defaultphoto.jpg" alt="User profile picture" width="150px">
+    </section>
+
+    <!-- Form for posting new posts on the homepage -->
+    <!-- Could be an issue with switching id and name in textarea to "text instead of "postText -> Check that later -->
+    <section class="new-post">
+        <form action="{{ url_for('main.new_post') }}" method="post">
+            <label for="postText">New Post:</label>
+            <textarea id="postText" name="postText" rows="4" cols="50"></textarea>
+            <button type="submit">Post</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Latest posts</h2>
+        {% include 'posts_template.html' %}
+    </section>
+{% endblock %}
